@@ -1,0 +1,3 @@
+# tipCalc
+
+Functionality
