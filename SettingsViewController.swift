@@ -12,7 +12,7 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     
-    @IBOutlet weak var defaultTip: UISegmentedControl!
+    @IBOutlet var defaultTip: UISegmentedControl!
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
