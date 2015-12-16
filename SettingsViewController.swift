@@ -27,7 +27,6 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaultTip.selectedSegmentIndex = defaults.integerForKey("defaultTip")
-
     }
     
     @IBAction func changeDefaultTip(sender: AnyObject) {
