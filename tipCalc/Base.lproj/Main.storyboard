@@ -103,7 +103,7 @@
                     <navigationItem key="navigationItem" title="tipCalc" id="6el-PG-6g7">
                         <barButtonItem key="backBarButtonItem" title="Back" id="U2t-Eu-Iar"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="fSf-Nn-Ymr">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0oY-O6-P7p">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0oY-O6-P7p">
                                 <rect key="frame" x="233" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>

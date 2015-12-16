@@ -17,27 +17,15 @@ class ViewController: UIViewController {
     @IBOutlet var billField: UITextField!
     @IBOutlet var tipBackground: UIView!
     
-//    Setting Values
-    override func viewWillAppear(animated: Bool) {
-//        Set Initial Values
-        tipLabel.text = "$0.00"
-        totalAmount.text = "$0.00"
-        let defaults = NSUserDefaults()
-        tipValue.selectedSegmentIndex = defaults.integerForKey("defaultTip")
-        preferredStatusBarStyle()
-//        Styles
-        self.navigationController!.navigationBar.barTintColor = UIColor(red:0.37, green:0.21, blue:0.69, alpha:1.0)
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Additional Setup
         let defaults = NSUserDefaults()
         tipValue.selectedSegmentIndex = defaults.integerForKey("defaultTip")
-        print(self)
+        // Set Initial Values
+        tipLabel.text = "$0.00"
+        totalAmount.text = "$0.00"
+
         // Auto select text field on load
         billField.becomeFirstResponder()
         tipValue.alpha = 0
@@ -45,12 +33,36 @@ class ViewController: UIViewController {
         totalAmount.alpha = 0
 
         UIView.animateWithDuration(0.25, animations: {
+            self.tipLabel.alpha = 1;
+        })
+        
+        UIView.animateWithDuration(0.5, animations: {
             self.tipValue.alpha = 1;
         })
         
+        UIView.animateWithDuration(0.75, animations: {
+            self.totalAmount.alpha = 1;
+        })
+    }
+    
+    
+    //    Setting Values
+    override func viewWillAppear(animated: Bool) {
+        let defaults = NSUserDefaults()
+        tipValue.selectedSegmentIndex = defaults.integerForKey("defaultTip")
+        preferredStatusBarStyle()
+        //        Styles
+        self.navigationController!.navigationBar.barTintColor = UIColor(red:0.37, green:0.21, blue:0.69, alpha:1.0)
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        
+        // Set the tip background color
         setTipBackgroundColor()
         
+        // Call main function
+        onEditingChanged(self)
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,14 +94,6 @@ class ViewController: UIViewController {
 
 //    Dynamic change of text field
     @IBAction func onEditingChanged(sender: AnyObject) {
-        
-
-        UIView.animateWithDuration(0.5, animations: {
-            if (self.totalAmount.text?.isEmpty != true) {
-                self.tipLabel.alpha = 1
-                self.totalAmount.alpha = 1
-            }
-        })
         
 //        Animate Tip Background based on tip amount
         setTipBackgroundColor()
