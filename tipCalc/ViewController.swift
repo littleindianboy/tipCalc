@@ -67,6 +67,7 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
+//    Changes the background color behind the current tip value based on the chosen tip percentage
     func setTipBackgroundColor() {
         UIView.animateWithDuration(0.4, animations: {
             if (self.tipValue.selectedSegmentIndex == 0) {
@@ -82,12 +83,13 @@ class ViewController: UIViewController {
 //    Dynamic change of text field
     @IBAction func onEditingChanged(sender: AnyObject) {
         
-        if totalAmount.text?.isEmpty == true {
-            UIView.animateWithDuration(0.5, animations: {
+
+        UIView.animateWithDuration(0.5, animations: {
+            if (self.totalAmount.text?.isEmpty != true) {
                 self.tipLabel.alpha = 1
                 self.totalAmount.alpha = 1
-            })
-        }
+            }
+        })
         
 //        Animate Tip Background based on tip amount
         setTipBackgroundColor()
